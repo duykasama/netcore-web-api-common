@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{439C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.Architecture.Gateway.Ocelot", "NetCore.Architecture.Gateway.Ocelot\NetCore.Architecture.Gateway.Ocelot.csproj", "{1462345C-7A4C-46B6-9C3C-9E9B9DB7D2D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.Architecture.Gateway.Yarp", "NetCore.Architecture.Gateway.Yarp\NetCore.Architecture.Gateway.Yarp.csproj", "{768A6413-7A08-4A34-9ED4-705F6287371B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,8 +34,13 @@ Global
 		{1462345C-7A4C-46B6-9C3C-9E9B9DB7D2D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1462345C-7A4C-46B6-9C3C-9E9B9DB7D2D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1462345C-7A4C-46B6-9C3C-9E9B9DB7D2D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{768A6413-7A08-4A34-9ED4-705F6287371B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{768A6413-7A08-4A34-9ED4-705F6287371B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{768A6413-7A08-4A34-9ED4-705F6287371B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{768A6413-7A08-4A34-9ED4-705F6287371B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1462345C-7A4C-46B6-9C3C-9E9B9DB7D2D0} = {439CACD2-2B77-4A13-A58A-8EAE22A38FBE}
+		{768A6413-7A08-4A34-9ED4-705F6287371B} = {439CACD2-2B77-4A13-A58A-8EAE22A38FBE}
 	EndGlobalSection
 EndGlobal
