@@ -6,19 +6,19 @@ public abstract class BaseAuditableEntity<TKey, TUserKey> : BaseCreatableEntity<
     public DateTime AuditedAt { get; set; }
     public bool IsDeleted { get; set; }
 
-    protected virtual void SetAuditedInfo(TUserKey auditedBy, DateTime auditedAt)
+    public virtual void SetAuditedInfo(TUserKey auditedBy, DateTime auditedAt)
     {
         AuditedBy = auditedBy;
         AuditedAt = auditedAt;
     }
     
-    protected virtual void SetAuditor(TUserKey auditedBy)
+    public virtual void SetAuditor(TUserKey auditedBy)
     {
         AuditedBy = auditedBy;
         AuditedAt = DateTime.Now;
     }
 
-    protected void SetDeletedInfo(TUserKey deletedBy)
+    public void SetDeletedInfo(TUserKey deletedBy)
     {
         SetAuditor(deletedBy);
         IsDeleted = true;
