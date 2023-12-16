@@ -10,10 +10,14 @@ public static class LogHelper
     {
         _loggerservice = loggerService;
     }
-    // cannot inject ILoggerService to LogHelper
 
     public static void WriteInfo(string message)
     {
         _loggerservice.Info(message);
+    }
+    
+    public static void WriteError(string message)
+    {
+        _loggerservice.Error(message);
     }
 }

@@ -34,7 +34,7 @@ public class BaseController : Controller
 
     #endregion
 
-    #region Failed
+    #region Failure
 
     protected IActionResult ClientError(string messageContent, object? data = null)
     {
