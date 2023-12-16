@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NetCore.Architecture.Core.Common\NetCore.Architecture.Core.Common.csproj" />
+      <ProjectReference Include="..\NetCore.WebApiCommon.Core.Common\NetCore.WebApiCommon.Core.Common.csproj" />
     </ItemGroup>
 
 </Project>

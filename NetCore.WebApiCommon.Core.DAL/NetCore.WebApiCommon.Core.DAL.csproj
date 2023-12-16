@@ -4,6 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>NetCore.Architecture.Core.DAL</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,8 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NetCore.Architecture.Core.Common\NetCore.Architecture.Core.Common.csproj" />
-      <ProjectReference Include="..\NetCore.Architecture.Core\NetCore.Architecture.Core.csproj" />
+      <ProjectReference Include="..\NetCore.WebApiCommon.Core.Common\NetCore.WebApiCommon.Core.Common.csproj" />
+      <ProjectReference Include="..\NetCore.WebApiCommon.Core\NetCore.WebApiCommon.Core.csproj" />
     </ItemGroup>
 
 </Project>
