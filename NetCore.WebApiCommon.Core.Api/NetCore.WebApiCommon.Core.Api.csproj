@@ -4,7 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>NetCore.Architecture.Api</RootNamespace>
+        <RootNamespace>NetCore.WebApiCommon.Api</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

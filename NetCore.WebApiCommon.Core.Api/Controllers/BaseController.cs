@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NetCore.Architecture.Api.Models;
-using NetCore.Architecture.Core.Common.Constants;
-using NetCore.Architecture.Core.Common.Enums;
-using NetCore.Architecture.Core.Common.Exceptions;
-using NetCore.Architecture.Core.Common.Helpers;
+using NetCore.WebApiCommon.Api.Models;
+using NetCore.WebApiCommon.Core.Common.Constants;
+using NetCore.WebApiCommon.Core.Common.Enums;
+using NetCore.WebApiCommon.Core.Common.Exceptions;
+using NetCore.WebApiCommon.Core.Common.Helpers;
 
-namespace NetCore.Architecture.Api.Controllers;
+namespace NetCore.WebApiCommon.Api.Controllers;
 
 [ApiController]
 public class BaseController : Controller

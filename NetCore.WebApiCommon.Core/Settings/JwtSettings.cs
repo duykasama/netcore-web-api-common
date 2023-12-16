@@ -1,4 +1,4 @@
-﻿namespace NetCore.Architecture.Core.Settings;
+﻿namespace NetCore.WebApiCommon.Core.Settings;
 
 public class JwtSettings
 {

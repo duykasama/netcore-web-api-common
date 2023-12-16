@@ -1,4 +1,4 @@
-﻿namespace NetCore.Architecture.Core.Common.Exceptions;
+﻿namespace NetCore.WebApiCommon.Core.Common.Exceptions;
 
 public interface IAppException
 {

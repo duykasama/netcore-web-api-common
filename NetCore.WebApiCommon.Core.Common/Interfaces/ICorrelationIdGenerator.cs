@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Primitives;
 
-namespace NetCore.Architecture.Core.Common.Interfaces;
+namespace NetCore.WebApiCommon.Core.Common.Interfaces;
 
 public interface ICorrelationIdGenerator
 {

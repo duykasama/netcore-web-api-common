@@ -1,7 +1,7 @@
-﻿using NetCore.Architecture.Core.Common.Interfaces;
-using NetCore.Architecture.Core.DAL.Interfaces;
+﻿using NetCore.WebApiCommon.Core.Common.Interfaces;
+using NetCore.WebApiCommon.Core.DAL.Interfaces;
 
-namespace NetCore.Architecture.Core.DAL.Implementations;
+namespace NetCore.WebApiCommon.Core.DAL.Implementations;
 
 public class UnitOfWork : IUnitOfWork
 {

@@ -1,6 +1,6 @@
-﻿using NetCore.Architecture.Core.Constants;
+﻿using NetCore.WebApiCommon.Core.Constants;
 
-namespace NetCore.Architecture.Core.Settings;
+namespace NetCore.WebApiCommon.Core.Settings;
 
 public class CorsSettings
 {

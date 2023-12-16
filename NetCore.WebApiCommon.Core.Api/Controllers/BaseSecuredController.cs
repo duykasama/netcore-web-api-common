@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace NetCore.Architecture.Api.Controllers;
+namespace NetCore.WebApiCommon.Api.Controllers;
 
 [Authorize]
 public class BaseSecuredController : BaseController

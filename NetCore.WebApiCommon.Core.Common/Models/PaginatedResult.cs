@@ -1,4 +1,4 @@
-﻿namespace NetCore.Architecture.Core.Common.Models;
+﻿namespace NetCore.WebApiCommon.Core.Common.Models;
 
 public class PaginatedResult
 {

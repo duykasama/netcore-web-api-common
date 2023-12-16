@@ -1,4 +1,4 @@
-﻿namespace NetCore.Architecture.Api.Models;
+﻿namespace NetCore.WebApiCommon.Api.Models;
 
 public class ApiActionResult
 {

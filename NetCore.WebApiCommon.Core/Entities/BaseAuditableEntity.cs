@@ -1,4 +1,4 @@
-﻿namespace NetCore.Architecture.Core.Entities;
+﻿namespace NetCore.WebApiCommon.Core.Entities;
 
 public abstract class BaseAuditableEntity<TKey, TUserKey> : BaseCreatableEntity<TKey, TUserKey>
 {

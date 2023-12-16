@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
-using NetCore.Architecture.Core.Common.Constants;
-using NetCore.Architecture.Core.Common.Interfaces;
+using NetCore.WebApiCommon.Core.Common.Constants;
+using NetCore.WebApiCommon.Core.Common.Interfaces;
 
-namespace NetCore.Architecture.Api.Middlewares;
+namespace NetCore.WebApiCommon.Api.Middlewares;
 
 public class CorrelationIdHandlerMiddleware
 {

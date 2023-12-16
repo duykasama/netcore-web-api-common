@@ -1,6 +1,6 @@
-﻿using NetCore.Architecture.Core.Common.Enums;
+﻿using NetCore.WebApiCommon.Core.Common.Enums;
 
-namespace NetCore.Architecture.Api.Models;
+namespace NetCore.WebApiCommon.Api.Models;
 
 public class ApiResponse<T>
 {

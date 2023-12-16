@@ -1,4 +1,4 @@
-﻿namespace NetCore.Architecture.Core.Common.Enums;
+﻿namespace NetCore.WebApiCommon.Core.Common.Enums;
 
 public enum ApiResultStatus
 {

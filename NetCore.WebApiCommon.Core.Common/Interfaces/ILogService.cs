@@ -1,4 +1,4 @@
-﻿namespace NetCore.Architecture.Core.Common.Interfaces;
+﻿namespace NetCore.WebApiCommon.Core.Common.Interfaces;
 
 public interface ILogService : IBaseService
 {

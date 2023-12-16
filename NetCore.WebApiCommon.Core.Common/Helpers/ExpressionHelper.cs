@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace NetCore.Architecture.Core.Common.Helpers;
+namespace NetCore.WebApiCommon.Core.Common.Helpers;
 
 public static class ExpressionHelper
 {

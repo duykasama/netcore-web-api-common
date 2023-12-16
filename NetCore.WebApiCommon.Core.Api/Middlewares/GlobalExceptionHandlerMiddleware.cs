@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
-using NetCore.Architecture.Api.Models;
-using NetCore.Architecture.Core.Common.Enums;
-using NetCore.Architecture.Core.Common.Helpers;
+using NetCore.WebApiCommon.Api.Models;
+using NetCore.WebApiCommon.Core.Common.Enums;
+using NetCore.WebApiCommon.Core.Common.Helpers;
 
-namespace NetCore.Architecture.Api.Middlewares;
+namespace NetCore.WebApiCommon.Api.Middlewares;
 
 public class GlobalExceptionHandlerMiddleware
 {

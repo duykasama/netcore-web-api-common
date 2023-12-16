@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NetCore.Architecture.Core.DAL.Interfaces;
-using NetCore.Architecture.Core.Entities;
+using NetCore.WebApiCommon.Core.DAL.Interfaces;
+using NetCore.WebApiCommon.Core.Entities;
 
-namespace NetCore.Architecture.Core.DAL.Implementations;
+namespace NetCore.WebApiCommon.Core.DAL.Implementations;
 
 public abstract class AppDbContext : DbContext, IAppDbContext
 {

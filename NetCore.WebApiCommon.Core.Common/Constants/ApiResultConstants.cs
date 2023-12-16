@@ -1,4 +1,4 @@
-﻿namespace NetCore.Architecture.Core.Common.Constants;
+﻿namespace NetCore.WebApiCommon.Core.Common.Constants;
 
 public static class ApiResultConstants
 {

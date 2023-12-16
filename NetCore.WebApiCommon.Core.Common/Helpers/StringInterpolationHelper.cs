@@ -1,10 +1,10 @@
 ﻿using System.Text;
 
-namespace NetCore.Architecture.Core.Common.Helpers;
+namespace NetCore.WebApiCommon.Core.Common.Helpers;
 
 public static class StringInterpolationHelper
 {
-    private static StringBuilder _builder;
+    private static StringBuilder? _builder;
 
     private static StringBuilder Builder
     {

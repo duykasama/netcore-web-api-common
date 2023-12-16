@@ -1,6 +1,6 @@
-﻿using NetCore.Architecture.Core.Common.Interfaces;
+﻿using NetCore.WebApiCommon.Core.Common.Interfaces;
 
-namespace NetCore.Architecture.Core.Common.Helpers;
+namespace NetCore.WebApiCommon.Core.Common.Helpers;
 
 public static class LogHelper
 {

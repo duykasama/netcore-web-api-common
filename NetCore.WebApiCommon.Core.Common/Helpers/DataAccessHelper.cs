@@ -1,10 +1,10 @@
 ﻿using System.Reflection;
 using DbUp;
 using Microsoft.Extensions.Configuration;
-using NetCore.Architecture.Core.Common.Constants;
-using NetCore.Architecture.Core.Common.Exceptions;
+using NetCore.WebApiCommon.Core.Common.Constants;
+using NetCore.WebApiCommon.Core.Common.Exceptions;
 
-namespace NetCore.Architecture.Core.Common.Helpers;
+namespace NetCore.WebApiCommon.Core.Common.Helpers;
 
 public static class DataAccessHelper
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Primitives;
-using NetCore.Architecture.Core.Common.Interfaces;
+using NetCore.WebApiCommon.Core.Common.Interfaces;
 
-namespace NetCore.Architecture.Core.Common.Implementations;
+namespace NetCore.WebApiCommon.Core.Common.Implementations;
 
 public class CorrelationIdGenerator : ICorrelationIdGenerator
 {

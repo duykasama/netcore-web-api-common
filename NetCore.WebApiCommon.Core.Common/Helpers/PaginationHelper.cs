@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using NetCore.Architecture.Core.Common.Models;
+using NetCore.WebApiCommon.Core.Common.Models;
 
-namespace NetCore.Architecture.Core.Common.Helpers;
+namespace NetCore.WebApiCommon.Core.Common.Helpers;
 
 public static class PaginationHelper
 {

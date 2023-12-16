@@ -1,4 +1,4 @@
-﻿namespace NetCore.Architecture.Core.Constants;
+﻿namespace NetCore.WebApiCommon.Core.Constants;
 
 public static class CorsConstants
 {
