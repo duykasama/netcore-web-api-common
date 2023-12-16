@@ -38,7 +38,7 @@ public class BaseController : Controller
 
     protected IActionResult ClientError(string messageContent, object? data = null)
     {
-        var apiResult = new ApiResponse(false)
+        var apiResponse = new ApiResponse(false)
         {
             Data = data,
             Messages = new List<AppMessage>()
@@ -46,17 +46,22 @@ public class BaseController : Controller
                 new()
                 {
                     Content = messageContent,
-                    Type = AppMessageType.Error
+                    Type = ApiMessageType.Error
                 }
             }
         };
         
-        return BadRequest(apiResult);
+        return ClientError(apiResponse);
+    }
+    
+    protected IActionResult ClientError(ApiResponse apiResponse)
+    {
+        return BadRequest(apiResponse);
     }
 
-    private IActionResult Error(string messageContent, AppErrorType errorType = AppErrorType.InternalServerError, object? data = null)
+    private IActionResult Error(string messageContent, ApiErrorType errorType = ApiErrorType.InternalServerError, object? data = null)
     {
-        var apiResult = new ApiResponse(false)
+        var apiResponse = new ApiResponse(false)
         {
             Data = data,
             Messages = new List<AppMessage>()
@@ -64,15 +69,15 @@ public class BaseController : Controller
                 new()
                 {
                     Content = messageContent,
-                    Type = AppMessageType.Error
+                    Type = ApiMessageType.Error
                 }
             }
         };
 
         return errorType switch
         {
-            AppErrorType.ClientError => BadRequest(apiResult),
-            AppErrorType.BusinessError => StatusCode(StatusCodes.Status409Conflict, apiResult),
+            ApiErrorType.ClientError => ClientError(apiResponse),
+            ApiErrorType.BusinessError => StatusCode(StatusCodes.Status409Conflict, apiResponse),
             _ => InternalError(messageContent)
         };
     }
@@ -105,7 +110,7 @@ public class BaseController : Controller
             StringInterpolationHelper.Append(methodInfo);
             StringInterpolationHelper.Append($"]]. IsSuccess: {apiActionResult.IsSuccess}");
             StringInterpolationHelper.Append(". Detail: ");
-            StringInterpolationHelper.Append(apiActionResult.Detail ?? string.Empty);
+            StringInterpolationHelper.Append(apiActionResult.Detail ?? "no details.");
             LogHelper.WriteInfo(StringInterpolationHelper.BuildAndClear());
             
             return apiActionResult.IsSuccess ? Success(apiActionResult.Data) : Problem(apiActionResult.Detail);
@@ -119,7 +124,7 @@ public class BaseController : Controller
             StringInterpolationHelper.Append(e.Message);
             LogHelper.WriteInfo(StringInterpolationHelper.BuildAndClear());
             
-            return e.GetType().IsAssignableTo(typeof(IAppException)) ? Error(e.Message, AppErrorType.BusinessError) : InternalError(e.Message);
+            return e.GetType().IsAssignableTo(typeof(IAppException)) ? Error(e.Message, ApiErrorType.BusinessError) : InternalError(e.Message);
         }
         finally
         {

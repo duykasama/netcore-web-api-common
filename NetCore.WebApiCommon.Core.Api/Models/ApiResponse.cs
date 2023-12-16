@@ -17,7 +17,7 @@ public class ApiResponse<T>
     {
     }
 
-    public ApiResponse<T> AddMessage(string messageContent, AppMessageType type)
+    public ApiResponse<T> AddMessage(string messageContent, ApiMessageType type)
     {
         Messages.Add(new AppMessage() {Content = messageContent, Type = type});
         return this;
@@ -25,19 +25,19 @@ public class ApiResponse<T>
 
     public ApiResponse<T> AddSuccessMessage(string messageContent)
     {
-        Messages.Add(new AppMessage(){ Content = messageContent, Type = AppMessageType.Success});
+        Messages.Add(new AppMessage(){ Content = messageContent, Type = ApiMessageType.Success});
         return this;
     }
     
     public ApiResponse<T> AddWarningMessage(string messageContent)
     {
-        Messages.Add(new AppMessage(){ Content = messageContent, Type = AppMessageType.Warning});
+        Messages.Add(new AppMessage(){ Content = messageContent, Type = ApiMessageType.Warning});
         return this;
     }
     
     public ApiResponse<T> AddErrorMessage(string messageContent)
     {
-        Messages.Add(new AppMessage(){ Content = messageContent, Type = AppMessageType.Error});
+        Messages.Add(new AppMessage(){ Content = messageContent, Type = ApiMessageType.Error});
         return this;
     }
 }

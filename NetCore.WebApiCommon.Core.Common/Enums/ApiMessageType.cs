@@ -1,6 +1,6 @@
 ﻿namespace NetCore.WebApiCommon.Core.Common.Enums;
 
-public enum AppMessageType
+public enum ApiMessageType
 {
     Info = 0,
     Success = 1,

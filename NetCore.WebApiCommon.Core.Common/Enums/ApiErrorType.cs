@@ -1,6 +1,6 @@
 ﻿namespace NetCore.WebApiCommon.Core.Common.Enums;
 
-public enum AppErrorType
+public enum ApiErrorType
 {
     ClientError = 400,
     BusinessError = 409,
