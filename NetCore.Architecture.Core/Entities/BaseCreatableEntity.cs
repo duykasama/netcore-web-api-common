@@ -10,10 +10,4 @@ public abstract class BaseCreatableEntity<TKey, TUserKey> : BaseEntity<TKey>
         CreatedBy = createdBy;
         CreatedAt = createdAt;
     }
-    
-    public virtual void SetCreator(TUserKey createdBy)
-    {
-        CreatedBy = createdBy;
-        CreatedAt = DateTime.Now;
-    }
 }

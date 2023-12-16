@@ -31,10 +31,4 @@ public abstract class BaseVersionableEntity<TKey, TUserKey> : BaseAuditableEntit
         base.SetCreatedInfo(createdBy, createdAt);
         Version = 0;
     }
-
-    public override void SetCreator(TUserKey createdBy)
-    {
-        base.SetCreator(createdBy);
-        Version = 0;
-    }
 }
