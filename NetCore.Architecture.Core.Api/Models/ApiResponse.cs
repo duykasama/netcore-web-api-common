@@ -2,57 +2,57 @@
 
 namespace NetCore.Architecture.Api.Models;
 
-public class AppApiResponse<T>
+public class ApiResponse<T>
 {
     public bool IsSuccess { get; set; }
-    public T Data { get; set; }
+    public T? Data { get; set; }
     public IList<AppMessage> Messages { get; set; }
-    public AppApiResponse(bool isSuccess)
+    public ApiResponse(bool isSuccess)
     {
         IsSuccess = isSuccess;
         Messages = new List<AppMessage>();
     }
 
-    public AppApiResponse() : this(false)
+    public ApiResponse() : this(false)
     {
     }
 
-    public AppApiResponse<T> AddMessage(string messageContent, AppMessageType type)
+    public ApiResponse<T> AddMessage(string messageContent, AppMessageType type)
     {
         Messages.Add(new AppMessage() {Content = messageContent, Type = type});
         return this;
     }
 
-    public AppApiResponse<T> AddSuccessMessage(string messageContent)
+    public ApiResponse<T> AddSuccessMessage(string messageContent)
     {
         Messages.Add(new AppMessage(){ Content = messageContent, Type = AppMessageType.Success});
         return this;
     }
     
-    public AppApiResponse<T> AddWarningMessage(string messageContent)
+    public ApiResponse<T> AddWarningMessage(string messageContent)
     {
         Messages.Add(new AppMessage(){ Content = messageContent, Type = AppMessageType.Warning});
         return this;
     }
     
-    public AppApiResponse<T> AddErrorMessage(string messageContent)
+    public ApiResponse<T> AddErrorMessage(string messageContent)
     {
         Messages.Add(new AppMessage(){ Content = messageContent, Type = AppMessageType.Error});
         return this;
     }
 }
 
-public class AppApiResponse : AppApiResponse<object>
+public class ApiResponse : ApiResponse<object>
 {
-    public AppApiResponse(bool isSuccess): base(isSuccess)
+    public ApiResponse(bool isSuccess): base(isSuccess)
     {
     }
 
-    public AppApiResponse() : this(false)
+    public ApiResponse() : this(false)
     {
     }
 
-    public AppApiResponse(object data) : this()
+    public ApiResponse(object data) : this()
     {
         Data = data;
     }
