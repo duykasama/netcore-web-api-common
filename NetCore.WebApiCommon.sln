@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8923735B-C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.WebApiCommon.Core.DAL", "NetCore.WebApiCommon.Core.DAL\NetCore.WebApiCommon.Core.DAL.csproj", "{7973CCF9-A5EC-4EB6-B4B3-CEEF4FD8B662}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E7A2C758-7AA1-4354-BDD7-879DE923D364}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

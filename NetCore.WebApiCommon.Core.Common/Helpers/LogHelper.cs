@@ -4,20 +4,23 @@ namespace NetCore.WebApiCommon.Core.Common.Helpers;
 
 public static class LogHelper
 {
-    private static ILogService _loggerservice;
+    private static ILogService? _logService;
 
-    public static void InitLoggerService(ILogService loggerService)
+    private static ILogService LogService
     {
-        _loggerservice = loggerService;
+        get
+        {
+            return _logService ??= DependencyInjectionHelper.ResolveService<ILogService>();
+        }
     }
 
     public static void WriteInfo(string message)
     {
-        _loggerservice.Info(message);
+        LogService.Info(message);
     }
     
     public static void WriteError(string message)
     {
-        _loggerservice.Error(message);
+        LogService.Error(message);
     }
 }
