@@ -1,9 +1,9 @@
 ﻿using Autofac;
 using NetCore.WebApiCommon.Core.Common.Interfaces;
-using NetCore.WebApiCommon.Infrastructure.Common.Models;
+using NetCore.WebApiCommon.Core.Common.Models;
 using NLog;
 
-namespace NetCore.WebApiCommon.Infrastructure.Common.Implementations;
+namespace NetCore.WebApiCommon.Infrastructure.Implementations;
 
 public class NLogService : GenericService, ILogService
 {

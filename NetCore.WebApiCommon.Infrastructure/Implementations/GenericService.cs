@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using NetCore.WebApiCommon.Core.Common.Interfaces;
 
-namespace NetCore.WebApiCommon.Infrastructure.Common.Implementations;
+namespace NetCore.WebApiCommon.Infrastructure.Implementations;
 
 public abstract class GenericService : IBaseService
 {

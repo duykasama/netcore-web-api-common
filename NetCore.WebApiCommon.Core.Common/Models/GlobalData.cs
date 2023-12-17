@@ -1,4 +1,4 @@
-﻿namespace NetCore.WebApiCommon.Infrastructure.Common.Models;
+﻿namespace NetCore.WebApiCommon.Core.Common.Models;
 
 public static class GlobalData
 {

@@ -41,7 +41,7 @@ public class BaseController : Controller
         var apiResponse = new ApiResponse(false)
         {
             Data = data,
-            Messages = new List<AppMessage>()
+            Messages = new List<ApiMessage>()
             {
                 new()
                 {
@@ -64,7 +64,7 @@ public class BaseController : Controller
         var apiResponse = new ApiResponse(false)
         {
             Data = data,
-            Messages = new List<AppMessage>()
+            Messages = new List<ApiMessage>()
             {
                 new()
                 {

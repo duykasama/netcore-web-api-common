@@ -2,17 +2,17 @@
 
 namespace NetCore.WebApiCommon.Api.Models;
 
-public class AppMessage
+public class ApiMessage
 {
     public string Content { get; set; }
     public ApiMessageType Type { get; set; }
 
-    public AppMessage()
+    public ApiMessage()
     {
         Content = string.Empty;
     }
     
-    public AppMessage(string content, ApiMessageType messageType = ApiMessageType.Info)
+    public ApiMessage(string content, ApiMessageType messageType = ApiMessageType.Info)
     {
         Content = content;
         Type = messageType;

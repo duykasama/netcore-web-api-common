@@ -27,7 +27,7 @@ public class GlobalExceptionHandlerMiddleware
             context.Response.StatusCode = 500;
 
             var response = new ApiResponse(false);
-            response.Messages.Add(new AppMessage(ex.Message, ApiMessageType.Error));
+            response.Messages.Add(new ApiMessage(ex.Message, ApiMessageType.Error));
 
             await context.Response.WriteAsync(response.ToString() ?? string.Empty);
         }

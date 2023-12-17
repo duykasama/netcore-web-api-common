@@ -1,4 +1,4 @@
-﻿namespace NetCore.WebApiCommon.Infrastructure.Api.Exceptions;
+﻿namespace NetCore.WebApiCommon.Infrastructure.Exceptions;
 
 public class MissingSwaggerSettingsException : ArgumentNullException
 {

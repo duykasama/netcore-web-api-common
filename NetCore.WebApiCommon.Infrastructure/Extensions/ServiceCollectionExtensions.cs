@@ -1,15 +1,17 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NetCore.WebApiCommon.Core.Common.Helpers;
 using NetCore.WebApiCommon.Core.Settings;
-using NetCore.WebApiCommon.Infrastructure.Api.Exceptions;
+using NetCore.WebApiCommon.Infrastructure.Exceptions;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace NetCore.WebApiCommon.Infrastructure.Api.Extensions;
+namespace NetCore.WebApiCommon.Infrastructure.Extensions;
 
-public static class ServiceExtensions
+public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddCustomSwagger(this IServiceCollection services, SwaggerSettings? swaggerSettings = default)
     {
@@ -40,15 +42,26 @@ public static class ServiceExtensions
         return services;
     }
 
-    public static void UseSwaggerInEnvironments(this WebApplication app, params string[] environments)
+    public static IServiceCollection AddJwtAuthentication(this IServiceCollection services)
     {
-        if (!environments.Contains(app.Environment.EnvironmentName)) return;
+        var configuration = DependencyInjectionHelper.ResolveService<IConfiguration>();
+        var jwtSettings = configuration.GetSection(nameof(JwtSettings)).Get<JwtSettings>() ?? throw new MissingJwtSettingsException();
         
-        app.UseSwagger();
-        app.UseSwaggerUI(options =>
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
         {
-            options.DisplayRequestDuration();
-            options.EnableTryItOutByDefault();
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidIssuer = jwtSettings.Issuer,
+                ValidateIssuer = jwtSettings.ValidateIssuer,
+                ValidAudience = jwtSettings.Audience,
+                ValidateAudience = jwtSettings.ValidateAudience,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SigningKey)),
+                ValidateIssuerSigningKey = jwtSettings.ValidateIssuerSigningKey,
+                ValidateLifetime = jwtSettings.ValidateLifetime,
+                ClockSkew = TimeSpan.Zero
+            };
         });
+        
+        return services;
     }
 }
