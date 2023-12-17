@@ -37,4 +37,4 @@ jobs:
         run: dotnet pack NetCore.WebApiCommon.sln -c Release -p:PackageVersion=${{ steps.version.outputs.version-without-v }} -o ${{ env.NUGET_OUTPUT_PATH }}
         
       - name: Publish packages
-        run: dotnet nuget push ${{ env.NUGET_OUTPUT_PATH }}/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }} -s ${{ secrets.NUGET_URL }} 
+        run: dotnet nuget push ${{ env.NUGET_OUTPUT_PATH }}/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ secrets.NUGET_URL }} 
