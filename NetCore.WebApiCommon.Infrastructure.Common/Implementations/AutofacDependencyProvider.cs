@@ -3,11 +3,11 @@ using NetCore.WebApiCommon.Core.Common.Interfaces;
 
 namespace NetCore.WebApiCommon.Infrastructure.Common.Implementations;
 
-public class DependencyProvider : GenericService, IDependencyProvider
+public class AutofacDependencyProvider : GenericService, IDependencyProvider
 {
     private readonly ILifetimeScope _scope;
 
-    public DependencyProvider(ILifetimeScope scope) : base(scope)
+    public AutofacDependencyProvider(ILifetimeScope scope) : base(scope)
     {
         _scope = scope;
     }

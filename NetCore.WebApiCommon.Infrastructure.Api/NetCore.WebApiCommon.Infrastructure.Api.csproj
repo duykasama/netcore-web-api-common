@@ -4,15 +4,15 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>NetCore.WebApiCommon.Api</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.14" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NetCore.WebApiCommon.Core.Common\NetCore.WebApiCommon.Core.Common.csproj" />
       <ProjectReference Include="..\NetCore.WebApiCommon.Core\NetCore.WebApiCommon.Core.csproj" />
     </ItemGroup>
 

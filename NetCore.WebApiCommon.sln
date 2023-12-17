@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.WebApiCommon.Infrastructure.Common", "NetCore.WebApiCommon.Infrastructure.Common\NetCore.WebApiCommon.Infrastructure.Common.csproj", "{1686B057-E05E-4A51-A00E-5108D4CB7929}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.WebApiCommon.Infrastructure.Api", "NetCore.WebApiCommon.Infrastructure.Api\NetCore.WebApiCommon.Infrastructure.Api.csproj", "{F21B574E-4BAC-4F67-A92B-C2E4FA227DB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{1686B057-E05E-4A51-A00E-5108D4CB7929}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1686B057-E05E-4A51-A00E-5108D4CB7929}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1686B057-E05E-4A51-A00E-5108D4CB7929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F21B574E-4BAC-4F67-A92B-C2E4FA227DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F21B574E-4BAC-4F67-A92B-C2E4FA227DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F21B574E-4BAC-4F67-A92B-C2E4FA227DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F21B574E-4BAC-4F67-A92B-C2E4FA227DB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DDDE2F78-BC0E-44D8-8CCB-7B94F11952D6} = {8923735B-C65F-442E-B16D-A039EDD55CE7}
@@ -47,5 +53,6 @@ Global
 		{E24C0D59-FA6A-421B-AE5B-E03B24601808} = {8923735B-C65F-442E-B16D-A039EDD55CE7}
 		{7973CCF9-A5EC-4EB6-B4B3-CEEF4FD8B662} = {8923735B-C65F-442E-B16D-A039EDD55CE7}
 		{1686B057-E05E-4A51-A00E-5108D4CB7929} = {E7A2C758-7AA1-4354-BDD7-879DE923D364}
+		{F21B574E-4BAC-4F67-A92B-C2E4FA227DB8} = {E7A2C758-7AA1-4354-BDD7-879DE923D364}
 	EndGlobalSection
 EndGlobal
