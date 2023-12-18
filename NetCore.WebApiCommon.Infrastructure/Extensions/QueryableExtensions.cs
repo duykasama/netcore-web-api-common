@@ -1,5 +1,4 @@
-﻿using System.Linq.Dynamic.Core;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using NetCore.WebApiCommon.Infrastructure.Exceptions;
 
 namespace NetCore.WebApiCommon.Infrastructure.Extensions;
