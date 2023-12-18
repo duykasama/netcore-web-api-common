@@ -34,7 +34,7 @@ jobs:
         uses: battila7/get-version-action@v2 
         
       - name: Pack projects
-        run: dotnet pack NetCore.WebApiCommon.sln -c Release -p:PackageVersion=${{ steps.version.outputs.version-without-v }} -o ${{ env.NUGET_OUTPUT_PATH }}
+        run: dotnet pack --no-restore --no-build NetCore.WebApiCommon.sln -c Release -p:PackageVersion=${{ steps.version.outputs.version-without-v }} -o ${{ env.NUGET_OUTPUT_PATH }}
         
       - name: Publish packages
         run: dotnet nuget push ${{ env.NUGET_OUTPUT_PATH }}/*.nupkg --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --source ${{ secrets.NUGET_SOURCE_URL }} 
