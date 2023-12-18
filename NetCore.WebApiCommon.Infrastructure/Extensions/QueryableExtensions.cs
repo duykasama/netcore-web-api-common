@@ -1,4 +1,6 @@
-﻿using System.Linq.Expressions;
+﻿using System.Linq.Dynamic.Core;
+using System.Linq.Expressions;
+using NetCore.WebApiCommon.Infrastructure.Exceptions;
 
 namespace NetCore.WebApiCommon.Infrastructure.Extensions;
 
@@ -40,4 +42,32 @@ public static class QueryableExtensions
         
         return query.Provider.CreateQuery<T>(call);
     }
+
+    public static IOrderedQueryable<T> SortBy<T>(this IQueryable<T> queryable, string propertyName, bool ascending = true)
+    {
+        var method = ascending ? "OrderBy" : "OrderByDescending";
+        var resultExpression = BuildQueryableMethodCallExpression(typeof(T), propertyName, method, queryable.Expression);
+        return (IOrderedQueryable<T>)queryable.Provider.CreateQuery<T>(resultExpression);
+    }
+    
+    public static IOrderedQueryable<T> ThenSortBy<T>(this IOrderedQueryable<T> queryable, string propertyName, bool ascending = true)
+    {
+        var method = ascending ? "ThenBy" : "ThenByDescending";
+        var resultExpression = BuildQueryableMethodCallExpression(typeof(T), propertyName, method, queryable.Expression);
+        return (IOrderedQueryable<T>)queryable.Provider.CreateQuery<T>(resultExpression);
+    }
+
+    private static MethodCallExpression BuildQueryableMethodCallExpression(Type type, string propertyName, string methodName, Expression expression)
+    {
+        var property = type.GetProperties().SingleOrDefault(p => string.Equals(propertyName, p.Name, StringComparison.OrdinalIgnoreCase));
+        if (property is null || property == default)
+        {
+            throw new PropertyNotFoundException();
+        }
+        var param = Expression.Parameter(type, nameof(type));
+        var propertyAccess = Expression.MakeMemberAccess(param, property);
+        var lambdaExpression = Expression.Lambda(propertyAccess, param);
+        return Expression.Call(typeof(Queryable), methodName, new[] { type, property.PropertyType },
+            expression, Expression.Quote(lambdaExpression));
+    } 
 }
