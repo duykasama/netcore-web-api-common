@@ -23,8 +23,8 @@ public static class PaginationHelper
 
         pageSize = Math.Max(1, pageSize);
         var lastPage = (int)Math.Ceiling((decimal)total / pageSize);
-        lastPage = lastPage < 1 ? 1 : lastPage;
-        pageIndex = pageIndex > lastPage ? lastPage : pageIndex;
+        lastPage = Math.Max(1, lastPage);
+        pageIndex = Math.Min(pageIndex, lastPage);
         var isLastPage = pageIndex == lastPage;
 
         var paginatedResult = new PaginatedResult
@@ -44,14 +44,14 @@ public static class PaginationHelper
             var reverse = source.Reverse();
             
             var res = reverse.Skip(skip).Take(take);
-            paginatedResult.Data = mapper == null ? res.Reverse() : mapper.Map<TDto>(res.Reverse());
+            paginatedResult.Data = mapper is null ? res.Reverse() : mapper.Map<TDto>(res.Reverse());
             return paginatedResult;
         }
         
         var results = source.Skip((pageIndex - 1) * pageSize)
             .Take(pageSize);
         paginatedResult.Data = results;
-        paginatedResult.Data = mapper == null ? results : mapper.Map<TDto>(results);
+        paginatedResult.Data = mapper is null ? results : mapper.Map<TDto>(results);
         return paginatedResult;
     }
     
