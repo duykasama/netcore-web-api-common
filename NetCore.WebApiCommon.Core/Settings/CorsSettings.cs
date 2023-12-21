@@ -9,7 +9,7 @@ public class CorsSettings
     public string AllowedHeaders { get; init; }
     public bool AllowCredentials { get; init; }
 
-    public string[] GetAllowedHostsArray()
+    public string[] GetAllowedOriginsArray()
     {
         return AllowedOrigins.Split(CorsConstants.HOSTS_SEPARATOR);
     }

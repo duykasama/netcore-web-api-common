@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using NetCore.WebApiCommon.Core.Common.Constants;
+using NetCore.WebApiCommon.Core.Constants;
 using NetCore.WebApiCommon.Core.Settings;
 using NetCore.WebApiCommon.Infrastructure.Exceptions;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -64,6 +66,29 @@ public static class ServiceCollectionExtensions
                 ValidateLifetime = jwtSettings.ValidateLifetime,
                 ClockSkew = TimeSpan.Zero
             };
+        });
+        
+        return services;
+    }
+
+    public static IServiceCollection AddDefaultCorsPolicy(this IServiceCollection services)
+    {
+        var corsSettings = Configuration.GetSection(nameof(CorsSettings)).Get<CorsSettings>() ??
+                           throw new MissingCorsSettingsException();
+        services.AddCors(options =>
+        {
+            options.AddPolicy(CorsConstants.APP_CORS_POLICY, builder =>
+            {
+                builder.WithOrigins(corsSettings.GetAllowedOriginsArray())
+                    .WithHeaders(corsSettings.GetAllowedHeadersArray())
+                    .WithMethods(corsSettings.GetAllowedMethodsArray());
+                if (corsSettings.AllowCredentials)
+                {
+                    builder.AllowCredentials();
+                }
+
+                builder.Build();
+            });
         });
         
         return services;
