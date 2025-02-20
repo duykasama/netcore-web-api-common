@@ -1,40 +1,39 @@
 ﻿name: Publish package
 
 on:
-  push: 
-    tags: 
+  push:
+    tags:
       - "v*"
 
 env:
   NUGET_OUTPUT_PATH: ./packages
-  
+
 jobs:
   publish:
-    
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 7.0.x
-          
+          dotnet-version: 8.0.x
+
       - name: Restore dependencies
         run: dotnet restore
-        
+
       - name: Build
         run: dotnet build --no-restore
-        
+
       - name: Test
         run: dotnet test --no-build
-        
+
       - name: Get version
         id: version
-        uses: battila7/get-version-action@v2 
-        
+        uses: battila7/get-version-action@v2
+
       - name: Pack projects
         run: dotnet pack NetCore.WebApiCommon.sln -c Release -p:PackageVersion=${{ steps.version.outputs.version-without-v }} -o ${{ env.NUGET_OUTPUT_PATH }}
-        
+
       - name: Publish packages
-        run: dotnet nuget push ${{ env.NUGET_OUTPUT_PATH }}/*.nupkg --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --source ${{ secrets.NUGET_SOURCE_URL }} 
+        run: dotnet nuget push ${{ env.NUGET_OUTPUT_PATH }}/*.nupkg --api-key ${{ secrets.NUGET_AUTH_TOKEN }} --source ${{ secrets.NUGET_SOURCE_URL }}
