@@ -14,20 +14,20 @@ namespace NetCore.WebApiCommon.Infrastructure.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    private static IConfiguration Configuration { get; set; }
+    private static IConfiguration Configuration { get; set; } = default!;
 
     public static void InitConfiguration(IConfiguration configuration)
     {
         Configuration = configuration;
     }
-    
+
     public static IServiceCollection AddCustomSwagger(this IServiceCollection services, SwaggerSettings? swaggerSettings = default)
     {
         swaggerSettings ??= Configuration.GetSection(nameof(SwaggerSettings)).Get<SwaggerSettings>() ?? throw new MissingSwaggerSettingsException();
-        
+
         services.AddSwaggerGen(
-            options => 
-            { 
+            options =>
+            {
                 options.SwaggerDoc(swaggerSettings.Version, new OpenApiInfo
                 {
                     Version = swaggerSettings.Version,
@@ -45,14 +45,14 @@ public static class ServiceCollectionExtensions
                 options.AddSecurityRequirement(swaggerSettings.GetSecurityRequirement());
             }
         );
-        
+
         return services;
     }
 
     public static IServiceCollection AddJwtAuthentication(this IServiceCollection services)
     {
         var jwtSettings = Configuration.GetSection(nameof(JwtSettings)).Get<JwtSettings>() ?? throw new MissingJwtSettingsException();
-        
+
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
         {
             options.TokenValidationParameters = new TokenValidationParameters
@@ -67,7 +67,7 @@ public static class ServiceCollectionExtensions
                 ClockSkew = TimeSpan.Zero
             };
         });
-        
+
         return services;
     }
 
@@ -90,7 +90,7 @@ public static class ServiceCollectionExtensions
                 builder.Build();
             });
         });
-        
+
         return services;
     }
 }

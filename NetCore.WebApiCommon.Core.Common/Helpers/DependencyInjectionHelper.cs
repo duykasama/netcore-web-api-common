@@ -4,14 +4,14 @@ namespace NetCore.WebApiCommon.Core.Common.Helpers;
 
 public static class DependencyInjectionHelper
 {
-    private static IDependencyProvider ServiceProvider { get; set; }
-    
+    private static IDependencyProvider ServiceProvider { get; set; } = default!;
+
     public static void InitProvider(IDependencyProvider serviceProvider)
     {
         ServiceProvider = serviceProvider;
     }
 
-    public static T ResolveService<T>()
+    public static T ResolveService<T>() where T : notnull
     {
         ValidateProvider();
         return ServiceProvider.ResolveService<T>();

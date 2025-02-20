@@ -2,7 +2,7 @@
 
 public abstract class BaseAuditableEntity<TKey, TUserKey> : BaseCreatableEntity<TKey, TUserKey>
 {
-    public TUserKey AuditedBy { get; set; }
+    public required TUserKey AuditedBy { get; set; }
     public DateTime AuditedAt { get; set; }
     public bool IsDeleted { get; set; }
 
@@ -11,7 +11,7 @@ public abstract class BaseAuditableEntity<TKey, TUserKey> : BaseCreatableEntity<
         AuditedBy = auditedBy;
         AuditedAt = auditedAt;
     }
-    
+
     public virtual void SetAuditor(TUserKey auditedBy)
     {
         AuditedBy = auditedBy;

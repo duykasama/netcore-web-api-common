@@ -20,7 +20,7 @@ public class CorrelationIdHandlerMiddleware
         context.Response.Headers.TryGetValue(CoreConstants.CORRELATION_ID_HEADER, out var id);
         if (string.IsNullOrEmpty(id))
         {
-            context.Response.Headers.Add(CoreConstants.CORRELATION_ID_HEADER, correlationId);
+            context.Response.Headers[CoreConstants.CORRELATION_ID_HEADER] = correlationId;
         }
         await _next(context);
     }

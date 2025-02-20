@@ -12,7 +12,7 @@ public class AutofacDependencyProvider : GenericService, IDependencyProvider
         _scope = scope;
     }
 
-    public T ResolveService<T>()
+    public T ResolveService<T>() where T : notnull
     {
         return _scope.Resolve<T>();
     }

@@ -1,23 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
         <RootNamespace>NetCore.WebApiCommon.Infrastructure</RootNamespace>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" />
+      <PackageReference Include="Autofac.Extensions.DependencyInjection" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+      <PackageReference Include="NLog" />
+      <PackageReference Include="Swashbuckle.AspNetCore" />
+    </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\NetCore.WebApiCommon.Core.Common\NetCore.WebApiCommon.Core.Common.csproj" />
       <ProjectReference Include="..\NetCore.WebApiCommon.Core\NetCore.WebApiCommon.Core.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Autofac" Version="7.1.0" />
-      <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
-      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14" />
-      <PackageReference Include="NLog" Version="5.2.5" />
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-    </ItemGroup>
-
 </Project>

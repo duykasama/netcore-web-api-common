@@ -2,6 +2,6 @@
 
 public interface IDependencyProvider
 {
-    T ResolveService<T>();
+    T ResolveService<T>() where T : notnull;
     object ResolveService(Type serviceType);
 }
