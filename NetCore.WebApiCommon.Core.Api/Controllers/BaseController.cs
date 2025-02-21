@@ -9,7 +9,8 @@ using NetCore.WebApiCommon.Core.Common.Helpers;
 namespace NetCore.WebApiCommon.Api.Controllers;
 
 [ApiController]
-public class BaseController : Controller
+[Route("api/[controller]")]
+public class BaseController : ControllerBase
 {
     #region Api Action Result
 
@@ -26,7 +27,7 @@ public class BaseController : Controller
         {
             Data = data
         };
-        
+
         var detail = !string.IsNullOrEmpty(message) ? message : ApiResultConstants.SUCCESS;
         successResult.AddSuccessMessage(detail);
         return base.Ok(successResult);
@@ -50,10 +51,10 @@ public class BaseController : Controller
                 }
             }
         };
-        
+
         return ClientError(apiResponse);
     }
-    
+
     protected IActionResult ClientError(ApiResponse apiResponse)
     {
         return BadRequest(apiResponse);
@@ -88,9 +89,9 @@ public class BaseController : Controller
     }
 
     #endregion
-    
+
     #endregion
-    
+
     #region Execute Api Action
 
     protected async Task<IActionResult> ExecuteApiAsync(Func<Task<ApiActionResult>> apiLogicFunc)
@@ -101,7 +102,7 @@ public class BaseController : Controller
         StringInterpolationHelper.AppendWithDefaultFormat($"CorrelationId = {correlationId.ToString().ToUpper()}");
         var methodInfo = StringInterpolationHelper.BuildAndClear();
         LogHelper.WriteInfo($"[START] [API-Method] - {methodInfo}");
-        
+
         try
         {
             var apiActionResult = await apiLogicFunc();
@@ -112,7 +113,7 @@ public class BaseController : Controller
             StringInterpolationHelper.Append(". Detail: ");
             StringInterpolationHelper.Append(apiActionResult.Detail ?? "no details.");
             LogHelper.WriteInfo(StringInterpolationHelper.BuildAndClear());
-            
+
             return apiActionResult.IsSuccess ? Success(apiActionResult.Data) : Problem(apiActionResult.Detail);
         }
         catch (Exception e)
@@ -123,7 +124,7 @@ public class BaseController : Controller
             StringInterpolationHelper.Append(". Detail: ");
             StringInterpolationHelper.Append(e.Message);
             LogHelper.WriteInfo(StringInterpolationHelper.BuildAndClear());
-            
+
             return e.GetType().IsAssignableTo(typeof(IAppException)) ? Error(e.Message, ApiErrorType.BusinessError) : InternalError(e.Message);
         }
         finally
@@ -135,6 +136,6 @@ public class BaseController : Controller
             LogHelper.WriteInfo(StringInterpolationHelper.BuildAndClear());
         }
     }
-    
+
     #endregion
 }
