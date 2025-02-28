@@ -2,5 +2,5 @@
 
 public abstract class BaseEntity<TKey>
 {
-    public required TKey Id { get; set; }
+    public TKey Id { get; set; } = default!;
 }
